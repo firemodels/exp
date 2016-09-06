@@ -1,14 +1,8 @@
-# fds-smv
-Fire Dynamics Simulator and Smokeview
+# exp
+Fire Research Division Experimental Database
 
-*Continuous Integration. Continuous Improvement.*
+Welcome to the Fire Research Division Experimental Database (exp)!
 
-Fire Dynamics Simulator ([FDS](https://github.com/firemodels/fds)) is a large-eddy simulation (LES) code for low-speed flows, with an emphasis on smoke and heat transport from fires.
-
-Smokeview ([SMV](https://github.com/firemodels/smv)) is a visualization program used to display the output of FDS and [CFAST](https://github.com/firemodels/cfast) simulations.
-
-For more information, including a link to our discussion forum, please visit the [FDS-SMV website](https://pages.nist.gov/fds/).
-
-Here is a link to our [Firebot Build Status](https://pages.nist.gov/fds/firebot_status.html).
+This database is a repository of experimental results for fire model validation.  It is used primarily by the Fire Dynamics Simulator ([FDS](https://github.com/firemodels/fds)) and [CFAST](https://github.com/firemodels/cfast).
 
 Pull requests welcome!
