@@ -1,3 +1,6 @@
+#[submodule "Submodules/macfp-db"]
+#        path = Submodules/macfp-db
+#        url = git@github.com:MaCFP/macfp-db.git
 [submodule "Submodules/macfp-db"]
 	path = Submodules/macfp-db
-	url = git@github.com:MaCFP/macfp-db.git
+	url = https://github.com/MaCFP/macfp-db.git
