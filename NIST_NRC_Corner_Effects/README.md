@@ -5,6 +5,8 @@ The compartment is 11 m long, 7 m wide, and 3.8 m high. The burner is 60 cm by 6
 
 The experiments began with the burner in the corner or against the wall for the first 30 min. At 30 min, the burner was moved so that its edge(s) was 10 cm away from the wall. It remained for 15 min, after which it moved to 20 cm, 30 cm, 50 cm, 100 cm, and 160 cm, each time remaining 15 min for a total experiment time of 2 h.
 
+A three-dimensional array of thermocouples was positioned on a track mounted to the ceiling above the burner. The purpose of this array was to measure maximum plume temperatures at heights of 2.1 m, 2.7 m, and 3.4 m above the floor. As the burner moved, the thermocouple array moved with it. When the burner was at the 0 cm, 10 cm, and 20 cm positions, the thermocouple array overhead remained at its original location in the corner or against the wall. As the burner moved beyond 20 cm, the thermocouple array was moved the same amount so that the burner was always below the array.
+
 The data sets contain primarily thermocouple measurements. The key to the column names are as follows:
 
 TC-AG-01 through TC-AG-29 are the thermocouples at the top of the cage, 46 cm below the ceiling.
