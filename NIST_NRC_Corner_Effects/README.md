@@ -1,7 +1,7 @@
 # NIST/NRC Corner and Wall Effects Experiments
 The data sets on this page are from large compartment experiments where a natural gas burner was positioned (1) in a corner and (2) against a wall, and then moved outward in stages until the corner or wall effect became negligible.
 
-The compartment was 11 m long, 7 m wide, and 3.8 m high. The burner was 60 cm by 60 cm and the burner surface was 50 cm above the floor. The long dimension of the compartment ran east-west. A 1.8 m wide, 2.4 m high door was centered on the east (short) wall. The corner fire was located in the southwest corner. The wall fire was centered on the south (long) wall.
+The compartment was 11 m long, 7 m wide, and 3.8 m high. The burner was 60 cm by 60 cm and the burner surface was 54 cm above the floor. The long dimension of the compartment ran east-west. A 1.8 m wide, 2.4 m high door was centered on the east (short) wall. The corner fire was located in the southwest corner. The wall fire was centered on the south (long) wall.
 
 The experiments began with the burner in the corner or against the wall for the first 30 min. At 30 min, the burner was moved so that its edge(s) was 10 cm away from the wall(s). It remained for 15 min, after which it was moved to 20 cm, 30 cm, 50 cm, 100 cm, and 160 cm, each time remaining 15 min for a total experiment time of 2 h.
 
