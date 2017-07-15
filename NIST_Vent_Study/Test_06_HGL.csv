@@ -1,4 +1,4 @@
-Time, floor_1_Height, floor_1_T_lower, floor_1_T_upper, floor_2_Height, floor_2_T_lower, floor_2_T_upper
+Time,floor_1_Height,floor_1_T_lower,floor_1_T_upper,floor_2_Height,floor_2_T_lower,floor_2_T_upper
 s,m,C,C,m,C,C
    0., 0.571,  17.3,  17.6, 0.402,  16.6,  16.9
   10., 0.515,  17.3,  17.9, 0.392,  16.6,  16.9
