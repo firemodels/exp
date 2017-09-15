@@ -60,4 +60,4 @@ The test matrix is as follows:
 |  2     | Large      | Closed     | All open         | Grill                            |
 |  3     | Large      | Closed     | Closed           | Front open, side and back closed |
 
-
+![alt text](https://github.com/firemodels/exp/blob/master/NIST_NRC_Corner_Effects/grill_drawing.pdf "Grill Drawing")
