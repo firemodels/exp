@@ -54,10 +54,13 @@ The three dimensional array of thermocouples used in the wall and corner experim
    
 The test matrix is as follows:
 
-| Test   | Cabinet    | Front Door | Top Vents        | Upper Side Vents                 |
-|:------:|:----------:|:----------:|:----------------:|:--------------------------------:|
-|  1     | Large      | Closed     | Closed           | Grill                            |
-|  2     | Large      | Closed     | All open         | Grill                            |
-|  3     | Large      | Closed     | Closed           | Front open, side and back closed |
+| Test   | Cabinet    | Front Door | Top Vents        | Upper Side Vents                   |
+|:------:|:----------:|:----------:|:----------------:|:----------------------------------:|
+|  1     | Large      | Closed     | Closed           | Grill                              |
+|  2     | Large      | Closed     | All open         | Grill                              |
+|  3     | Large      | Closed     | Closed           | Front open, all others closed      |
+|  4     | Large      | Closed     | Closed           | Front and back open, others closed |
+|  5     | Large      | Open       | Closed           | Front and back open, others closed |
+|  6     | Large      | Open       | Open             | All open                           |
 
 ![alt text](https://github.com/firemodels/exp/blob/master/NIST_NRC_Corner_Effects/grill_drawing.png "Grill Drawing")
