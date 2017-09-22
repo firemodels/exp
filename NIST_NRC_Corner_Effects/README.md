@@ -40,7 +40,9 @@ In these experiments, two different mock steel cabinets were used. Each cabinet 
 ![alt text](https://github.com/firemodels/exp/blob/master/NIST_NRC_Corner_Effects/Cabinet_3x3x7.png "Large Cabinet")
 ![alt text](https://github.com/firemodels/exp/blob/master/NIST_NRC_Corner_Effects/Cabinet_2x2x7.png "Medium Cabinet")
 
-In the first series of experiments, the large cabinet was positioned with its front opening facing eastward towards the opening of the test compartment. Its left side was 1.8 m (6 ft) from the south wall and its front side was 5.8 m (19 ft 2 in) from the east wall. Two 0.3 m by 0.3 m natural gas burners were placed side by side in the cabinet from the perspective of the cabinet front opening. The heat release rate was initially 50 kW for 30 min, then it was increased to 100 kW for 15 min, 200 kW for 15 min, and 400 kW for 15 min. 
+In the first set of experiments, the large cabinet was positioned with its front opening facing eastward towards the opening of the test compartment. Its left side was 1.8 m (6 ft) from the south wall and its front side was 5.8 m (19 ft 2 in) from the east wall. Two 0.3 m by 0.3 m natural gas burners were placed side by side in the cabinet from the perspective of the cabinet front opening. For the closed door tests, the heat release rate was initially 50 kW for 30 min, then it was increased to 100 kW for 15 min, 200 kW for 15 min, and 400 kW for 15 min. For the open door tests, the heat release rate was initially 200 kW for 15 min, 400 kW for 15 min, 700 kW for 15 min, and 1000 kW for 5 min.
+
+In the second set of experiments, the medium-sized cabinet was positioned so that its front was the same distance from the east wall as the large cabinet, and its left side was 2.0 m (6.5 ft) from the south wall. A single 30 cm by 30 cm gas burner was centered within. For the closed door tests, the heat release rate was 25 kW, 50 kW, 100 kW, and 200 kW, each for 15 min. For the open door tests, the heat release rate was 40 kW, 80 kW, 200 kW, and 325 kW, each for 15 min.
 
 The data files for these experiments are labelled, `NIST_NRC_Cabinet_Test_n.csv`. These files contain the same measurement positions as the corner and wall experiments, with the following additional measurements: 
 
@@ -64,5 +66,9 @@ The test matrix is as follows:
 |  4     | Large      | Closed     | Closed           | Front and back open, others closed | 50, 100, 200, 400      |
 |  5     | Large      | Open       | Closed           | Front and back open, others closed | 200, 400, 700, 1000    |
 |  6     | Large      | Open       | Open             | All open                           | 200, 400, 700, 1000    |
+|  7     | Medium     | Closed     | Closed           | Grill                              | 25, 50, 100, 200       |
+|  8     | Medium     | Closed     | Closed           | Open                               | 25, 50, 100, 200       |
+|  9     | Medium     | Open       | Closed           | Open                               | 40. 80, 200, 325       |
+|  10    | Medium     | Open       | Closed           | Closed                             | 40. 80, 200, 325       |
 
 ![alt text](https://github.com/firemodels/exp/blob/master/NIST_NRC_Corner_Effects/grill_drawing.png "Grill Drawing")
