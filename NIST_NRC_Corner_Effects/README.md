@@ -48,7 +48,7 @@ In the third set of experiments (11-12), the cabinet was removed, and two 30 cm 
 
 The data files for these experiments are labelled, `NIST_NRC_Cabinet_Test_n.csv`. These files contain the same measurement positions as the corner and wall experiments, with the following additional measurements: 
 
-   * PT-1 through PT-8 are plate thermometers positioned 0.6 m (2 ft) from each side of the cabinet at heights of 0.8 m (2.5 ft) and 1.4 m (4.5 ft). PT-1 is the upper plate on the left side. PT-2 is lower left. PT-3 is upper back. PT-4 is lower back. PT-5 is upper front. PT-6 is lower front. PT-7 is upper right. PT-8 is lower right.
+   * PT-1 through PT-8 are plate thermometers positioned 0.6 m (2 ft) from each side of the cabinet at heights of 0.8 m (2.5 ft) and 1.4 m (4.5 ft). PT-1 is the upper plate on the left side. PT-2 is lower left. PT-3 is upper back. PT-4 is lower back. PT-5 is upper front. PT-6 is lower front. PT-7 is upper right. PT-8 is lower right. The files labeled `NIST_NRC_Cabinet_Test_n_HF.csv` contain estimates of the heat flux to the plates based on Wickstrom's analysis.
 
    * STC-1 through STC-6 are sheathed thermocouples within the cabinet, 15 cm (6 in) from the left side, centered. STC-1 is 6 cm (2.5 in) from the top. STC-2 through STC-6 are 30 cm, 60 cm, 90 cm, 120 cm, and 150 cm from the top, respectively.
    
