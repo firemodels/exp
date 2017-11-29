@@ -57,6 +57,8 @@ The data files for these experiments are labelled, `NIST_NRC_Cabinet_Test_n.csv`
 The three dimensional array of thermocouples used in the wall and corner experiments was positioned over the front of the cabinet, such that TC positions 1, 7, 13, 19, and 25 in the diagram shown above were just above the upper front edge of the cabinet.
 
 The hot gas layer (HGL) temperature and height have been calculated from the east and west TC trees, and the results can be found in the files labelled, `NIST_NRC_Cabinet_Test_n_HGL.csv`.
+
+The maximum temperature at each level of the three-tiered thermocouple array can be found in the files labelled, `NIST_NRC_Cabinet_Test_n_Plume.csv`.
    
 The test matrix is as follows:
 
