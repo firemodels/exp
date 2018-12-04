@@ -22,3 +22,5 @@ Position 16-19 is the wind angle in degrees to be read as xxx.x (3250 = 325.0 de
 
 .HDF identifies the data format as a Hierarchical Data File which is the standard file format
 chosen for the exchange of the data.
+
+The data extracted from these HDF files are organized by "lines" which are profiles of mean, rms, min, and max pressure coefficient from the leading edge of the building, up and over the roof, and down the leeward side. Thus, a file with suffix `_line_x.csv` are just the data along the line of interest. 
