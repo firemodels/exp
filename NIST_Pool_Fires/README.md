@@ -12,6 +12,8 @@ Notes
 
 * The lip height reported by Weckman and Strong (1996) and Kim et al. (2019) is 10 mm. Hamins et al. (1993), Klassen et al. (1994), and Hamins and Lock (2016) report a lip height of 5 mm.
 
+* The measured mass loss rate for the 30 cm methanol pool, averaged over the various studies, is 13.2$\pm$0.9 g/(m$^2 \cdot$s). The mass loss rate for the 100 cm methanol pool is 16.3$\pm$0.2 g/(m$^2 \cdot$s). 
+
 * The measured radiative fraction in the reported studies varies between 0.18 and 0.22.
 
 * For methanol, the amount of CO in the exhaust stream is below detection limits; thus, the combustion efficiency for methanol is assumed to be 1. The efficiency for the other fuels is not reported.
@@ -43,17 +45,18 @@ Radiative and total heat flux measurements were made at various locations for th
 
 ### References
 
-1. E.J. Weckman and A.B. Strong (1996) Experimental investigation of the turbulence structure of medium-scale methanol pool fires, Combustion and Flame, 105: 245-66.
+Falkenstein-Smith, R., K. Sung, J. Chen, and A. Hamins (2019) The Chemical Structure of Medium-Scale Pool Fires, Interflam Conference Proceedings, p. 2059, London, England, July 1-3, 2019.
 
-2. S.C. Kim, K.Y. Lee, and A. Hamins (2019) Energy Balance in Medium-Scale Methanol, Ethanol, and Acetone Pool Fires, Fire Safety Journal, 107, 44-53, https://doi.org/10.1016/j.firesaf.2019.01.004
+Falkesntein-Smith, R., K. Sung, A. Hamins (2019) Mapping the Chemical Structure of Centerline Profiles in Medium-Scale Pool Fires, National Institute of Standards and Technology, Gaithersburg, MD, NIST Technical Note, in preparation.
 
-3. A. Hamins, M. Klassen, J. Gore, S. Fischer, T. Kashiwagi (1993) Heat feedback to the fuel surface in pool fires, Combustion Science and Technology, 97:37-62.
+Hamins, A., M. Klassen, J. Gore, S. Fischer, T. Kashiwagi (1993) Heat feedback to the fuel surface in pool fires, Combustion Science and Technology, 97:37-62.
 
-4. M. Klassen, J.P. Gore (1994) Structure and Radiation Properties of Pool Fires, NIST GCR 94-651, National Institute of Standards and Technology, Gaithersburg, MD, June.
+Hamins, A. and A. Lock (2016) The Structure of a Moderate-Scale Methanol Pool Fire, National Institute of Standards and Technology, Gaithersburg, MD, NIST Technical Note 1928, October.
 
-5. A. Hamins and A. Lock (2016) The Structure of a Moderate-Scale Methanol Pool Fire, National Institute of Standards and Technology, Gaithersburg, MD, NIST Technical Note 1928, October.
+Kim, S.C., K.Y. Lee, and A. Hamins (2019) Energy Balance in Medium-Scale Methanol, Ethanol, and Acetone Pool Fires, Fire Safety Journal, 107:44-53, https://doi.org/10.1016/j.firesaf.2019.01.004
 
-6. R. Falkenstein-Smith, K. Sung, J. Chen, and A. Hamins (2019) The Chemical Structure of Medium-Scale Pool Fires, Interflam Conference Proceedings, p. 2059, London, England, July 1-3, 2019.
+Klassen, M. and J.P. Gore (1994) Structure and Radiation Properties of Pool Fires, NIST GCR 94-651, National Institute of Standards and Technology, Gaithersburg, MD, June.
 
-7. R. Falkesntein-Smith, K. Sung, A. Hamins (2019) Mapping the Chemical Structure of Centerline Profiles in Medium-Scale Pool Fires, National Institute of Standards and Technology, Gaithersburg, MD, NIST Technical Note, in preparation.
+Weckman, E.J. and A.B. Strong (1996) Experimental investigation of the turbulence structure of medium-scale methanol pool fires, Combustion and Flame, 105:245-66.
+
 
