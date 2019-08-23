@@ -57,6 +57,8 @@ Kim, S.C., K.Y. Lee, and A. Hamins (2019) Energy Balance in Medium-Scale Methano
 
 Klassen, M. and J.P. Gore (1994) Structure and Radiation Properties of Pool Fires, NIST GCR 94-651, National Institute of Standards and Technology, Gaithersburg, MD, June.
 
+Sung, K., J. Chen, M. Bundy, M. Fernandez, and A. Hamins (2019) The Characteristics of a 1 m Methanol Pool Fire, National Institute of Standards and Technology, Gaithersburg, MD, NIST Technical Note, in preparation.
+
 Weckman, E.J. and A.B. Strong (1996) Experimental investigation of the turbulence structure of medium-scale methanol pool fires, Combustion and Flame, 105:245-66.
 
 
