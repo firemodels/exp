@@ -12,7 +12,7 @@ Notes
 
 * The lip height reported by Weckman and Strong (1996) and Kim et al. (2019) is 10 mm. Hamins et al. (1993), Klassen et al. (1994), and Hamins and Lock (2016) report a lip height of 5 mm.
 
-* The measured mass loss rate for the 30 cm methanol pool, averaged over the various studies, is 13.2$\pm$0.9 g/(m$^2 \cdot$s). The mass loss rate for the 100 cm methanol pool is 16.3$\pm$0.2 g/(m$^2 \cdot$s). 
+* The measured mass loss rate for the 30 cm methanol pool, averaged over the various studies, is 13.2 ± 0.9 g/(m<sup>2</sup> s). The mass loss rate for the 100 cm methanol pool is 16.3 ± 0.2 g/(m<sup>2</sup> s). 
 
 * The measured radiative fraction in the reported studies varies between 0.18 and 0.22.
 
