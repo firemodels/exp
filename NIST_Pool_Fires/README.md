@@ -42,6 +42,9 @@ Radiative and total heat flux measurements were made at various locations for th
 
 `Methanol_30_cm_HF_vertical_Kim_2019.csv` Vertical profile of total heat flux 60 cm from the pool center.
 
+`Methanol_100_cm_HF_radial.csv` Radial profile of total heat flux from outer rim to 2 m (Sung et al. (2019)).
+
+`Methanol_100_cm_HF_vertical.csv` Vertical profiles of total heat flux at various heights and distances from the pool center (Sung et al. (2019)).
 
 ### References
 
