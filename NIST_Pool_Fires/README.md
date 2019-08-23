@@ -1,8 +1,10 @@
 ## NIST Pool Fires
 
-This directory contains experiments measurements of liquid pool fires. Two circular pool diameters are reported, 30 cm and 100 cm. 
+This directory contains experimental measurements of liquid pool fires. Two circular pool diameters are reported, 30 cm and 100 cm. 
 
-The 30 cm burner is 15 cm deep and has a wall thickness of 1.6 mm. The burner was fitted with legs such that the burner rim was positioned 0.3 m above the floor. The bottom of the burner was maintained at a constant temperature by flowing tap water (nominally 20 °C) through a 3 cm section on the bottom of the fuel pan.
+The 30 cm burner is 15 cm deep and has a wall thickness of 1.6 mm. The burner is fitted with legs such that the burner rim is positioned 30 cm above the floor. The bottom of the burner is maintained at a constant temperature by flowing tap water (nominally 20 °C) through a 3 cm section on the bottom of the fuel pan.
+
+The 100 cm burner is also 15 cm deep with a wall thicknes of 1.6 mm. It is also water cooled at the bottom.
 
 Notes
 
@@ -10,9 +12,9 @@ Notes
 
 * The lip height reported by Weckman and Strong (1996) and Kim et al. (2019) is 10 mm. Hamins et al. (1993), Klassen et al. (1994), and Hamins and Lock (2016) report a lip height of 5 mm.
 
-* The reported radiative fraction in the reported studies varied between 0.18 and 0.22.
+* The measured radiative fraction in the reported studies varies between 0.18 and 0.22.
 
-* The amount of CO in the exhaust stream was below detection limits; thus, the combustion efficiency for methanol is assumed to be 1. The efficiency for the other fuels is not reported.
+* For methanol, the amount of CO in the exhaust stream is below detection limits; thus, the combustion efficiency for methanol is assumed to be 1. The efficiency for the other fuels is not reported.
 
 
 ### Temperature
@@ -30,13 +32,13 @@ Falkenstein-Smith et al. (2019) measured the time-averaged centerline species co
 
 Radiative and total heat flux measurements were made at various locations for the 30~cm methanol pool fire. 
 
-	Radial profiles of temperature at various heights in the fire [2,6]
+`Methanol_30_cm_HF_radial_Kim_2019.csv` Radial profile of total heat flux from the pool center out to 1.5 m.
 
-	Radial profile of radiative heat flux [3] and total [2] heat flux onto the pool surface
+`Methanol_30_cm_HF_radial_Hamins_1993.csv` Radial profile of radiative heat flux from the pool center to outer rim.
 
-	Radial profile of radiative heat flux in the downward direction beyond the pool radius [2, 4]
+`Methanol_30_cm_HF_radial_Klassen_1994.csv` Radial profile of total heat flux from outer rim to 60 cm.
 
-	Vertical profiles of radiative heat flux in the horizontal direction 60 cm and 82.5 cm from the pool center [2,4 ] 
+`Methanol_30_cm_HF_vertical_Kim_2019.csv` Vertical profile of total heat flux 60 cm from the pool center.
 
 
 ### References
