@@ -4,13 +4,13 @@ This directory contains experimental measurements of liquid pool fires. Two circ
 
 The 30 cm burner is 15 cm deep and has a wall thickness of 1.6 mm. The burner is fitted with legs such that the burner rim is positioned 30 cm above the floor. The bottom of the burner is maintained at a constant temperature by flowing tap water (nominally 20 °C) through a 3 cm section on the bottom of the fuel pan.
 
-The 100 cm burner is also 15 cm deep with a wall thicknes of 1.6 mm. It is also water cooled at the bottom.
+The 100 cm burner is also 15 cm deep with a wall thickness of 1.6 mm. It is also water cooled at the bottom.
 
 Notes
 
 * Weckman and Strong (1996) report a burner diameter of 30.5 cm. The burner used at NIST has a diameter of 30.1 cm.
 
-* The lip height reported by Weckman and Strong (1996) and Kim et al. (2019) is 10 mm. Hamins et al. (1993), Klassen et al. (1994), and Hamins and Lock (2016) report a lip height of 5 mm.
+* The lip height reported by Weckman and Strong (1996) and Kim et al. (2019) is 10 mm. Hamins et al. (1994), Klassen et al. (1994), and Hamins and Lock (2016) report a lip height of 5 mm.
 
 * The measured mass loss rate for the 30 cm methanol pool, averaged over the various studies, is 13.2 ± 0.9 g/(m<sup>2</sup> s). The mass loss rate for the 100 cm methanol pool is 16.3 ± 0.2 g/(m<sup>2</sup> s). 
 
@@ -36,7 +36,7 @@ Radiative and total heat flux measurements were made at various locations for th
 
 `Methanol_30_cm_HF_radial_Kim_2019.csv` Radial profile of total heat flux from the pool center out to 1.5 m.
 
-`Methanol_30_cm_HF_radial_Hamins_1993.csv` Radial profile of radiative heat flux from the pool center to outer rim.
+`Methanol_30_cm_HF_radial_Hamins_1994.csv` Radial profile of radiative heat flux from the pool center to outer rim.
 
 `Methanol_30_cm_HF_radial_Klassen_1994.csv` Radial profile of total heat flux from outer rim to 60 cm.
 
@@ -52,7 +52,7 @@ Falkenstein-Smith, R., K. Sung, J. Chen, and A. Hamins (2019) The Chemical Struc
 
 Falkesntein-Smith, R., K. Sung, A. Hamins (2019) Mapping the Chemical Structure of Centerline Profiles in Medium-Scale Pool Fires, National Institute of Standards and Technology, Gaithersburg, MD, NIST Technical Note, in preparation.
 
-Hamins, A., M. Klassen, J. Gore, S. Fischer, T. Kashiwagi (1993) Heat feedback to the fuel surface in pool fires, Combustion Science and Technology, 97:37-62.
+Hamins, A., M. Klassen, J. Gore, S. Fischer, T. Kashiwagi (1994) Heat feedback to the fuel surface in pool fires, Combustion Science and Technology, 97:37-62.
 
 Hamins, A. and A. Lock (2016) The Structure of a Moderate-Scale Methanol Pool Fire, National Institute of Standards and Technology, Gaithersburg, MD, NIST Technical Note 1928, October.
 
