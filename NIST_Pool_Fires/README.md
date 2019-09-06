@@ -18,6 +18,10 @@ Notes
 
 * For methanol, the amount of CO in the exhaust stream is below detection limits; thus, the combustion efficiency for methanol is assumed to be 1. The efficiency for the other fuels is not reported.
 
+![Pool Fire Photograph](100cm_Methanol_Pool_Fire.jpg)
+
+Photographs of the 100 cm methanol fire.
+
 
 ### Temperature
 
