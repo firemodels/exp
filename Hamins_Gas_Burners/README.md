@@ -22,7 +22,7 @@ Calibrated water-cooled radiometers were used to measure the radiative heat flux
 
 The experimental parameters are listed in Tables 1-3, including the fire diameter (D), the mass buring rate (m), the radial position of the vertical radiometer array (R), the idealized heat release rate (HRR), the fraction of energy radiated outwards (Xr), the fraction of energy convected upwards into the plume (Xc), and the fraction of energy feedback to the burner (Xb), the combustion efficiency (Xa), and the name of the comma-delimited Data File containing the heat flux data. The Data File corresponding to each experiment provides the measured radiative heat flux along the radial axis, q"(r), and along the vertical axis, q"(z).  
 
-####Table 1. Acetylene Parameters
+#### Table 1. Acetylene Parameters
 
 | Test |	D (m) |	m (g/s) |	R (m) |	HRR (kW) |	 Xr	| Xc 	|  Xb	| Xa 	| Data File |
 | ---- |	---- |	------ |	----- |	------ |	---	| ---	| ---	| ---	| --------- |
