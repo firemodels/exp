@@ -1,10 +1,10 @@
-##Hamins Gas Burner Experiments
+## Hamins Gas Burner Experiments
 
-####Overview
+#### Overview
 
 The heat flux from fires fueled by three different gases and three circular burners was measured by Anthony Hamins at NIST in the early 1990s. A number of reports describing the data are available (Hamins et al., 1996; Hamins, 2016). Complementary experiments were conducted for select cases (Tests P17 and P19 below), providing measurements of major gas species and soot concentrations, the gas-phase temperature, and the velocity along the pool centerline (Falkenstein-Smith et al., in preparation, 2020).
 
-####Experimental Description
+#### Experimental Description
 
 Experiments were conducted varying the fuel (methane, propane, acetylene) mass flux for fires burning in a quiescent environment in three circular burners (0.10 m, 0.35 m, and 1.00 m diameters) for heat release rates varying from approximately 1 kW to 100 kW.  Measurements were made of the time-averaged distributions of radiative heat flux emitted to the surroundings. These results were used to determine the radiative fraction, a parameter characterizing the fraction of energy lost to the surroundings. A number of other measurements were made, including heat feedback to the burner, and for some tests, the sensible enthalpy fraction transported by the fire plume via convection. 
 
@@ -18,7 +18,7 @@ The largest burner had a 1.00 m inner diameter, was 0.075 m deep, and had a wall
 
 Calibrated water-cooled radiometers were used to measure the radiative heat flux distribution along a cylindrical control surface surrounding the fire. The view angle of the heat flux gauges was measured to be approximately 150 degrees, somewhat smaller than a full hemisphere. About 10 water-cooled (2.5 cm diameter) total heat flux transducers were positioned along perpendicular axes aligned with the burner.  The first row of radiometers was positioned on a vertical axis located a distance R away from the fire. The radiometers were oriented horizontally facing the fire. The second row was oriented upwards, positioned along the radius on the plane aligned with the burner surface. The radiative flux typically drops off very quickly in the radial direction, whereas in the vertical direction, the flux peaks at a vertical location equal to approximately 50 % of the characteristic flame height and then drops to small values above the visible flame tip. The measured signal was time-averaged for about one min. The uncertainty (with a coverage factor of two) in the radiative flux measurement was 16 %, which took into account gauge calibration and signal (and background) variability.
  
-####Results
+#### Results
 
 The experimental parameters are listed in Tables 1-3, including the fire diameter (D), the mass buring rate (m), the radial position of the vertical radiometer array (R), the idealized heat release rate (HRR), the fraction of energy radiated outwards (Xr), the fraction of energy convected upwards into the plume (Xc), and the fraction of energy feedback to the burner (Xb), the combustion efficiency (Xa), and the name of the comma-delimited Data File containing the heat flux data. The Data File corresponding to each experiment provides the measured radiative heat flux along the radial axis, q"(r), and along the vertical axis, q"(z).  
 
@@ -47,7 +47,7 @@ The experimental parameters are listed in Tables 1-3, including the fire diamete
 
 (b) calculated value
 
-####Table 2. Methane/Natural Gas Parameters
+#### Table 2. Methane/Natural Gas Parameters
 
 | Test |	D (m) |	m (g/s) |	R (m)  |	HRR (kW) |	 Xr	| Xc (b)|  Xb	| Data File |
 | ---- |	----  |	------  |	-----  |	------   |	---	| ---	  | ---	| ---	      | 
@@ -86,7 +86,7 @@ The experimental parameters are listed in Tables 1-3, including the fire diamete
 
 (b) calculated value assuming Xa = 1
 
-####Table 3. Propane Parameters
+#### Table 3. Propane Parameters
 
 | Test |	D (m) |	m (g/s) |	R (m) |	HRR (kW) |	 Xr	| Xc (a)|  Xb	| Data File |
 | ---- |	---- |	------ |	----- |	------ |	---	| ---	| ---	| ---	| 
