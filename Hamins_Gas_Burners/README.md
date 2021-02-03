@@ -1,28 +1,28 @@
-##Hamins Gas Burner Experiments
+## Hamins Gas Burner Experiments
 
-####Overview
+#### Overview
 
-The heat flux from fires fueled by three different gases and three circular burners was measured by Anthony Hamins at NIST in the early 1990s. A full report describing the data is in preparation and will be available soon (see Hamins, Energetics of Small and Moderate-Scale Gaseous Pool Fires, NIST TN, 2016, in preparation.)
+The heat flux from fires fueled by three different gases and three circular burners was measured by Anthony Hamins at NIST in the early 1990s. A number of reports describing the data are available (Hamins et al., 1996; Hamins, 2016). Complementary experiments were conducted for select cases (Tests P17 and P19 below), providing measurements of major gas species and soot concentrations, the gas-phase temperature, and the velocity along the pool centerline (Falkenstein-Smith et al., in preparation, 2020).
 
-####Experimental Description
+#### Experimental Description
 
-Experiments were conducted varying the fuel (methane, propane, acetylene) mass flux for fires burning in a quiescent environment in three circular burners (0.10 m, 0.35 m, and 1.00 m diameters) for heat release rates varying from approximately 1 kW to 100 kW.  Measurements were made of the time-averaged distributions of radiative heat flux emitted to the surroundings. These results were used to determine the radiative fraction, a parameter characterizing the fraction of energy lost to the surroundings. A number of other measurements were made, including heat loss to the burner, and for some tests, the sensible enthalpy fraction transported by the fire plume via convection.  
+Experiments were conducted varying the fuel (methane, propane, acetylene) mass flux for fires burning in a quiescent environment in three circular burners (0.10 m, 0.35 m, and 1.00 m diameters) for heat release rates varying from approximately 1 kW to 100 kW.  Measurements were made of the time-averaged distributions of radiative heat flux emitted to the surroundings. These results were used to determine the radiative fraction, a parameter characterizing the fraction of energy lost to the surroundings. A number of other measurements were made, including heat feedback to the burner, and for some tests, the sensible enthalpy fraction transported by the fire plume via convection. 
 
 Steady state burning conditions were established before measurements were initiated. The rate of gaseous fuel delivery was controlled using calibrated rotometers. The combined expanded measurement uncertainty for the fuel mass flow was 4 %.  All uncertainties reported here are for a coverage factor of two, which is equal to two times the standard deviation.  
 
 The smallest gaseous burner had a 0.10 m diameter (and approximately a 0.0015 m wall thickness) that was filled with a 0.03 m layer of sand below its rim; it had 3 mm (outer diameter) copper water-cooling lines embedded as a series of coils in the form of a loosely wound spiral located 1 cm below the surface of the sand and around the outside of the burner. Sand is a good insulator; thus the surface of the sand was at elevated temperatures as measured by three thermocouples at the burner surface (r = 0 cm, 2.5 cm, and 4.5 cm). The measured temperature varied radially across the surface with temperatures reaching steady values of a few hundred degrees after burner warm-up. The area-weighted steady state average temperature varied from 200 &deg;C to 450 &deg;C.  
 
-The middle-sized burner was made of porous sintered-bronze and was water cooled with the surface having a physical dimension of 0.38 m diameter, yet the effective diameter of the burning area was observed to be consistently smaller as noted by a flame-free outer (1.5 cm) annular section on the burner surface.  It was as if the porous burner had a higher pressure drop near the burner edge.  The effective diameter was measured as 0.353 m.  The surface temperature of the burner was taken as approximately equal to the burner water cooling temperature at the burner outlet.  
+The middle-sized burner was made of porous sintered-bronze and was water cooled with the surface having a physical dimension of 0.38 m diameter, yet the effective diameter of the burning area was observed to be consistently smaller as noted by a flame-free outer (1.5 cm) annular section on the burner surface.  It was as if the porous burner had a higher pressure drop near the burner edge.  The effective diameter was measured as 0.353 m.  The surface temperature of the burner was taken as approximately equal to the temperature of the water used to cool the burner taken at the burner outlet.  
 
 The largest burner had a 1.00 m inner diameter, was 0.075 m deep, and had a wall thickness of approximately 0.0015 m. The burner was filled with a layer of course gravel and then a 0.03 m layer of sand below its rim. The bottom of the burner was not water-cooled. Sand is a good insulator, so the surface temperature of the sand was at elevated temperatures as measured by three thermocouples at the burner surface (0 m, 0.25 m, and 0.45 m from the burner center). 
 
 Calibrated water-cooled radiometers were used to measure the radiative heat flux distribution along a cylindrical control surface surrounding the fire. The view angle of the heat flux gauges was measured to be approximately 150 degrees, somewhat smaller than a full hemisphere. About 10 water-cooled (2.5 cm diameter) total heat flux transducers were positioned along perpendicular axes aligned with the burner.  The first row of radiometers was positioned on a vertical axis located a distance R away from the fire. The radiometers were oriented horizontally facing the fire. The second row was oriented upwards, positioned along the radius on the plane aligned with the burner surface. The radiative flux typically drops off very quickly in the radial direction, whereas in the vertical direction, the flux peaks at a vertical location equal to approximately 50 % of the characteristic flame height and then drops to small values above the visible flame tip. The measured signal was time-averaged for about one min. The uncertainty (with a coverage factor of two) in the radiative flux measurement was 16 %, which took into account gauge calibration and signal (and background) variability.
  
-####Results
+#### Results
 
-The experimental parameters are listed in Tables 1-3, including the fire diameter (D), the mass buring rate (m), the radial position of the vertical radiometer array (R), the idealized heat release rate (HRR), the fraction of energy radiated outwards (Xr), the fraction of energy convected upwards into the plume (Xc), and the fraction of energy lost to the burner (Xb), the combustion efficiency (Xa), and the name of the comma-delimited Data File containing the heat flux data. The Data File corresponding to each experiment provides the measured radiative heat flux along the radial axis, q"(r), and along the vertical axis, q"(z).  
+The experimental parameters are listed in Tables 1-3, including the fire diameter (D), the mass buring rate (m), the radial position of the vertical radiometer array (R), the idealized heat release rate (HRR), the fraction of energy radiated outwards (Xr), the fraction of energy convected upwards into the plume (Xc), and the fraction of energy feedback to the burner (Xb), the combustion efficiency (Xa), and the name of the comma-delimited Data File containing the heat flux data. The Data File corresponding to each experiment provides the measured radiative heat flux along the radial axis, q"(r), and along the vertical axis, q"(z).  
 
-####Table 1. Acetylene Parameters
+#### Table 1. Acetylene Parameters
 
 | Test |	D (m) |	m (g/s) |	R (m) |	HRR (kW) |	 Xr	| Xc 	|  Xb	| Xa 	| Data File |
 | ---- |	---- |	------ |	----- |	------ |	---	| ---	| ---	| ---	| --------- |
@@ -43,9 +43,11 @@ The experimental parameters are listed in Tables 1-3, including the fire diamete
 |A15	|0.35	|2.43 |0.69	|117.2	|0.28	|0.33	|0.09	|0.71 (b)	|A15.csv|
 |A16	|0.35	|2.79	|0.69	|134.7	|0.28	|0.31	|0.06	|0.66 (b)	|A16.csv|
 
-(a) value assumed equal to 1; (b) calculated value
+(a) value assumed equal to 1
 
-####Table 2. Methane/Natural Gas Parameters
+(b) calculated value
+
+#### Table 2. Methane/Natural Gas Parameters
 
 | Test |	D (m) |	m (g/s) |	R (m)  |	HRR (kW) |	 Xr	| Xc (b)|  Xb	| Data File |
 | ---- |	----  |	------  |	-----  |	------   |	---	| ---	  | ---	| ---	      | 
@@ -81,9 +83,10 @@ The experimental parameters are listed in Tables 1-3, including the fire diamete
 |M30* 	|1.00	|3.482	|0.79	|171.61	|0.148	|0.77	|0.086	|M30.csv
 
 (*) Natural gas, HoC=49.4 kJ/g
+
 (b) calculated value assuming Xa = 1
 
-####Table 3. Propane Parameters
+#### Table 3. Propane Parameters
 
 | Test |	D (m) |	m (g/s) |	R (m) |	HRR (kW) |	 Xr	| Xc (a)|  Xb	| Data File |
 | ---- |	---- |	------ |	----- |	------ |	---	| ---	| ---	| ---	| 
@@ -240,10 +243,11 @@ Table 10. Measured surface temperature for the 1.00 m diameter propane fire expe
 
 ####References
 
-1. Hamins, A., Klassen, M., Gore, J., Fischer, S., and Kashiwagi, T., Heat Feedback to the Fuel Surface in Pool Fires, Combust. Sci. Tech., 97, 37-62 (1993).
+1. Hamins, A., Energetics of Small and Moderate-Scale Gaseous Pool Fires, NIST TN 1926, National Institute of Standards and Technology, Gaithersburg, MD, November 2016.
 
 2. Hamins, A., Konishi, K., Borthwick, P., and Kashiwagi, T., Global Properties of Gaseous Pool Fires, Proceedings The Twenty-Sixth Symp. (Int.) on Combustion, The Combustion Institute, 1429-1436 (1996).
 
+3. Falkenstein-Smith, R, Sung, KH., Hu, Y., Liang, T., Hamins, A., The Structure of Medium-Scale Propane Pool Fires, in preparation, 2020.
 
 
 
