@@ -37,4 +37,3 @@ On page 87, the location AASW50 MF is mislabled as AASW40. The EXP File corrects
 
 The data in the file RS-HT_TU03A_50m_tower.csv is from Table A1.7 on page 103, described on page 102, and plotted in Fig 4.1 on page 256(ledgend on page 246)
 
-
