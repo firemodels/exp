@@ -135,7 +135,7 @@ for filename in file_list:                                # for all .XLS files w
 	dfout.index = (range(len(dfout)))                    # reorders index after drop
 
 	df_Time = dfout['Time']                              
-	dfout = dfout.drop(index=(len(df_Time)-1))           # removes last row 
+	dfout = dfout.drop(index=(len(df_Time)-1))           # removes last row of data 
 	for n in range (1,6):                                # removes leading zeroes
 		if (df_Time[n] == 0) and (df_Time[n+1] == 0):
 			dfout = dfout.drop(index=n)
