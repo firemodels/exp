@@ -65,7 +65,7 @@ for filename in file_list:                                # for all .XLS files w
 			value_out = round((input_value/2118.644),1)
 			unit_out = 'm3/s'
 		elif input_unit == 'MW':
-			value_out = int(round((input_value/1000),0))
+			value_out = int(round((input_value*1000),0))
 			unit_out = 'kW'
 		elif input_unit == 'PPM':
 			value_out = round((input_value/1e6),6)
