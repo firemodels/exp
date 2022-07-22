@@ -67,6 +67,9 @@ for filename in file_list:                                # for all .XLS files w
 		elif input_unit == 'MW':
 			value_out = int(round((input_value*1000),0))
 			unit_out = 'kW'
+		elif input_unit == 'PPM':
+			value_out = round((input_value/1e6),6)
+			unit_out = 'mol/mol'
 		elif input_unit == 'round_1':
 			value_out = round(input_value,1)
 			unit_out = input_unit
@@ -90,7 +93,7 @@ for filename in file_list:                                # for all .XLS files w
 			return(col_in)
 
 	# - perform conversions: search for specific headers to convert their data -
-	col_keys = ['Time','F','QI001','FPM','Loop']
+	col_keys = ['Time','F','QI001','FPM','Loop','PPM']
 
 	data_out = []                                         # initalize outgoing matrix
 	for row in df.index:
@@ -115,6 +118,8 @@ for filename in file_list:                                # for all .XLS files w
 			df_columns[col_n] = head[2:5] + '-U-' + head[5:7]
 		if head[:2] == 'TI':
 			df_columns[col_n] = head[4:7] + '-T-' + head[7] + '2'
+		if head[:2] =='CT':
+			df_columns[col_n] = head[2:5] + '-CO-' + head[-2:]
 
 	#  - converts units row -
 	this_key =  convert(value,col_unit(this_key))[1]
