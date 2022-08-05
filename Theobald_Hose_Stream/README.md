@@ -8,5 +8,6 @@ The aim of this test series is to allow for hose stream applications in FDS.  Th
 
 The FDS cases use the "jet break-up length" reported in the paper as the PRIMARY_BREAKUP_LENGTH in the input files.
 
-
 In the FDS repository, the python script `build_spray_input_files.py` reads `theobald_effect_1981_fds.csv` to generate the fds input files.
+
+The file `Nozzle_10_shape_factor.csv` was digitized from Fig. 7 of the paper.  Data for the relative shape factors of the other nozzles is taken from Table 1 of the paper.
