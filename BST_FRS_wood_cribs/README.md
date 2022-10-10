@@ -1,0 +1,1 @@
+These experimental data have been digitized from the test report "Natural Fires in Large Compartments, A British Steel Technical, Fire Research Station, Collaborative project. British Steel, 1994" by Rahul Kallada Janardhan, during his doctoral project at Aalto University, 2021.
