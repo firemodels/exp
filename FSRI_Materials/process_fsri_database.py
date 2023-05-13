@@ -378,6 +378,7 @@ if __name__ == "__main__":
             
             d = pd.DataFrame(np.array([times, hrrpuas]).T, columns=['Time','HRRPUA'])
             dataFile = os.path.abspath(os.path.join(out_dir,'%s-%02d.csv'%(mat, flux)))
+            d['HRRPUA'] = d['HRRPUA'].round(decimals=1)
             d.to_csv(dataFile, index=False)
             
     with open('fsri_spec_file.csv', 'w') as f:
