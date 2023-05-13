@@ -13,7 +13,8 @@ import shutil
 # 
 # Then navigate to the scripts directory and run collect_thermophysical_properties.py
 #
-# python fsri_materials_database/02_Scripts/Utilities/collect_thermophysical_properties.py
+# cd fsri_materials_database/02_Scripts/Utilities/
+# python collect_thermophysical_properties.py
 #
 # Then run this script.
 
