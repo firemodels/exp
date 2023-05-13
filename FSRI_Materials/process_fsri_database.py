@@ -58,7 +58,6 @@ def getConeData(material, directory, e=13100):
     files = glob.glob(p+os.sep+'*Cone_H*.csv')
     files = [x for x in files if "Scalar" not in x]
     
-    #cad_prop = pd.read_csv(p+os.sep + material+'_Cone_Analysis_Data.csv', index_col=0)
     try:
         tmp_prop = pd.read_csv(p+os.sep + material+'_Ignition_Temp_Properties.csv', header=None, index_col=0).T
         density = tmp_prop['Density (kg/m3)'].values[0]
@@ -72,6 +71,8 @@ def getConeData(material, directory, e=13100):
         f = '*' + '_Cone_HF' + HF + 'Scalar_*_' + rev + '.csv'
         d = glob.glob(os.path.join(p, f))[0]
         ds = pd.read_csv(d, header=None, index_col=0).squeeze()
+        # Data modification from pre-test notes and HRR calculation
+        # copied from FSRI processing scripts
         try:
             pretest_notes = ds.at['PRE TEST CMT']
         except:
@@ -103,8 +104,6 @@ def getConeData(material, directory, e=13100):
         
         dc.loc[:,'EDF'] = ((dc.loc[:,'Exh Press']/(dc.loc[:,'Stack TC']+273.15)).apply(np.sqrt)).multiply(c_factor) # Exhaust Duct Flow (m_e_dot)
         dc.loc[:,'Volumetric Flow'] = dc.loc[:,'EDF']*air_density(dc.loc[:,'Smoke TC']) # Exhaust Duct Flow (m_e_dot)
-        # O2_offset = 0.2095 - dc.at['Baseline', 'O2 Meter']
-        # dc.loc[:,'ODF'] = (0.2095 - dc.loc[:,'O2 Meter'] + O2_offset) / (1.105 - (1.5*(dc.loc[:,'O2 Meter'] + O2_offset))) # Oxygen depletion factor with only O2
         dc.loc[:,'ODF'] = (dc.at['Baseline', 'O2 Meter'] - dc.loc[:,'O2 Meter']) / (1.105 - (1.5*(dc.loc[:,'O2 Meter']))) # Oxygen depletion factor with only O2
         dc.loc[:,'ODF_ext'] = (dc.at['Baseline', 'O2 Meter']*(1-dc.loc[:, 'CO2 Meter'] - dc.loc[:, 'CO Meter']) - dc.loc[:, 'O2 Meter']*(1-dc.at['Baseline', 'CO2 Meter']))/(dc.at['Baseline', 'O2 Meter']*(1-dc.loc[:, 'CO2 Meter']-dc.loc[:, 'CO Meter']-dc.loc[:, 'O2 Meter'])) # Oxygen Depletion Factor with O2, CO, and CO2
         dc.loc[:,'HRR'] = 1.10*(e)*dc.loc[:,'EDF']*dc.loc[:,'ODF']
@@ -122,8 +121,6 @@ def getConeData(material, directory, e=13100):
             thickness = mass / (density*surf_area_m2)
         else:
             thickness = thickness/1000
-            
-        #namespace = file.split('cone_')[-1].split('.csv')[0]
         
         coneData[j] = dict()
         coneData[j]['flux'] = float(ds.at['HEAT FLUX']) # kW/m2
@@ -136,12 +133,6 @@ def getConeData(material, directory, e=13100):
         coneData[j]['timeMax'] = np.nanmax(dc['Time'])
         coneData[j]['timeInt'] = float(ds.at['SCAN TIME'])
         coneData[j]['timeIgn'] = float(ds.at['TIME TO IGN']) # m2
-        #coneData[j]['peakHRRPUA'] = cad_prop.loc['Peak HRRPUA (kW/m2)', namespace]
-        #coneData[j]['timeToPeak'] = cad_prop.loc['Time to Peak HRRPUA (s)', namespace]
-        #coneData[j]['HRRPUA, 60s average'] = cad_prop.loc['Average HRRPUA over 60 seconds (kW/m2)', namespace]
-        #coneData[j]['HRRPUA, 180s average'] = cad_prop.loc['Average HRRPUA over 180 seconds (kW/m2)', namespace]
-        #coneData[j]['HRRPUA, 300s average'] = cad_prop.loc['Average HRRPUA over 300 seconds (kW/m2)', namespace]
-        #coneData[j]['HeatOfCombustion'] = cad_prop.loc['Avg. Effective Heat of Combustion (MJ/kg)', namespace]
     
     coneData = pd.DataFrame(coneData).T
     
@@ -169,11 +160,8 @@ def importFsriMaterial(p, material, outInt, filterWidth=41):
     
     
     thicknesses = []
-    #uniqueFluxes = np.unique(coneData['flux'].values)
     fil = np.ones(filterWidth)/filterWidth
-    #print(coneData['flux'])
     for flux in np.unique(coneData['flux'].values):
-    #for flux in uniqueFluxes:
         outInt2 = outInt
         dt = np.min(coneData.loc[coneData['flux'] == flux, 'timeInt'].values)
         tMax = np.max(coneData.loc[coneData['flux'] == flux, 'timeMax'].values)
@@ -182,12 +170,6 @@ def importFsriMaterial(p, material, outInt, filterWidth=41):
         mass = np.median(coneData.loc[coneData['flux'] == flux, 'mass'].values)
         area = np.median(coneData.loc[coneData['flux'] == flux, 'area'].values)
         tign = np.median(coneData.loc[coneData['flux'] == flux, 'timeIgn'].values)
-        #peakHRRPUA = np.median(coneData.loc[coneData['flux'] == flux, 'peakHRRPUA'].values)
-        #timeToPeak = np.median(coneData.loc[coneData['flux'] == flux, 'timeToPeak'].values)
-        #avg60s = np.nanmedian(coneData.loc[coneData['flux'] == flux, 'HRRPUA, 60s average'].values)
-        #avg180s = np.nanmedian(coneData.loc[coneData['flux'] == flux, 'HRRPUA, 180s average'].values)
-        #avg300s = np.nanmedian(coneData.loc[coneData['flux'] == flux, 'HRRPUA, 300s average'].values)
-        #avgHoC = np.nanmedian(coneData.loc[coneData['flux'] == flux, 'HeatOfCombustion'].values)
         
         times = coneData.loc[coneData['flux'] == flux, 'time'].values
         hrrpuas = coneData.loc[coneData['flux'] == flux, 'hrrpua'].values
@@ -219,9 +201,6 @@ def importFsriMaterial(p, material, outInt, filterWidth=41):
             hrrpuas_interp_notign[:, j] = np.interp(time, time-tIgns[j], hrrpuas_interp[:, j])
         
         hrrpua = np.mean(hrrpuas_interp_notign, axis=1)        
-        
-        #hrrpua_mn = np.min(hrrpuas_interp_notign, axis=1)
-        #hrrpua_mx = np.max(hrrpuas_interp_notign, axis=1)
         hrrpua_std = np.std(hrrpuas_interp_notign, axis=1)
         
         tMax = time.max()
@@ -233,7 +212,6 @@ def importFsriMaterial(p, material, outInt, filterWidth=41):
         totalEnergy2 = np.trapz(outHrrpua, outTime)
         
         while abs(totalEnergy2 - totalEnergy)/totalEnergy > 0.00001:
-            #print(abs(totalEnergy2 - totalEnergy)/totalEnergy)
             outInt2 = outInt2*0.9
             outTime = np.linspace(0, tMax, int(tMax/outInt2)+1)
             outHrrpua = np.interp(outTime, time, hrrpua)
@@ -252,17 +230,9 @@ def importFsriMaterial(p, material, outInt, filterWidth=41):
         material_dict[flux]['hrrpua'] = outHrrpua
         material_dict[flux]['hrrpua_full_mean'] = hrrpua
         material_dict[flux]['hrrpua_full_std'] = hrrpua_std
-        #material_dict[flux]['hrrpua_full_min'] = hrrpua_mn
-        #material_dict[flux]['hrrpua_full_max'] = hrrpua_mx
-        material_dict[flux]['time_full'] = time #-tign #-tStart
+        material_dict[flux]['time_full'] = time
         material_dict[flux]['tIgn'] = tign
-        #material_dict[flux]['peakHRRPUA'] = peakHRRPUA
-        #material_dict[flux]['timeToPeak'] = timeToPeak
-        #material_dict[flux]['avg60s'] = avg60s
-        #material_dict[flux]['avg180s'] = avg180s
-        #material_dict[flux]['avg300s'] = avg300s
         material_dict[flux]['thickness'] = thickness
-        #material_dict[flux]['HeatOfCombustion'] = avgHoC
         material_dict[flux]['hrrpuas_interp'] = hrrpuas_interp
         material_dict[flux]['hrrpuas_interp_notign'] = hrrpuas_interp_notign
         material_dict[flux]['time_interp'] = time
@@ -275,10 +245,6 @@ def checkMaterial(p, material, ignores):
     if material in ignores: return False
     files = glob.glob(p+os.sep+'Cone'+os.sep+'*Cone_H*')
     if len(files) == 0: return False
-    #print(p+os.sep+'Cone' + os.sep + '*Cone_H*', len(files))
-    
-    #if os.path.exists(p+os.sep+'ignition_temp.csv') is False: complete = False
-    #print(p+os.sep+'Cone' + os.sep + material + '_Ignition_Temp_Properties.csv')
     if os.path.exists(p+os.sep+'Cone' + os.sep + material+'_Ignition_Temp_Properties.csv') is False:
         print("Warning material %s does not have ignition temp properties"%(material)) 
         #complete = False
@@ -300,11 +266,8 @@ def importFsriDatabase(data_dir, outInt, Tinfty=300,
     materials = []
     for i in range(0, len(material_directories)):
         p = os.path.abspath(material_directories[i])
-        #print(p)
         check = checkMaterial(p, possible_materials[i], ignores)
         if check: materials.append(possible_materials[i])
-    #print(materials)
-    #uniqueFluxes = [25, 50, 75]
     for i in range(0, len(materials)):
         material = materials[i]
         p = os.path.join(os.path.abspath(data_dir), material)
@@ -337,9 +300,6 @@ if __name__ == "__main__":
     raw_data_dir = '../../fsri_materials_database/01_Data/'
     out_dir = '../../exp/FSRI_Materials/'
     
-    #data_dir = "E:\\projects\\1JLH-NIST2022\\materials\\fsri_materials_database\\01_Data\\"
-    #out_dir = "E:\\projects\\1JLH-NIST2022\\materials\\fsri_materials_database\\04_Computed\\"
-    
     material_directories = glob.glob(raw_data_dir+'*')
     possible_materials = [d.split(os.sep)[-1] for d in material_directories]
     
@@ -359,12 +319,10 @@ if __name__ == "__main__":
     txt = txt + 'Density,Conductivity,SpecificHeat,Emissivity,Thickness,'
     txt = txt + 'IgnitionTemperature,IgnitionTemperatureBasis,HeaderRows,FYI'
 
-    #fluxes = [25, 50, 75]
     for material in list(material_database.keys()):
         conductivity = material_database[material]['conductivity']
         specific_heat = material_database[material]['heatCapacity']
         density = material_database[material]['density']
-        #thickness = material_database[material][50]['thickness']
         thickness = material_database[material]['thickness']
         
         fluxes = [x for x in list(material_database[material].keys()) if type(x) is float]
@@ -376,7 +334,6 @@ if __name__ == "__main__":
         dataFiles = ''
         for flux in fluxes:
             dataFile = os.path.join(expFileDir, '%s-%02d.csv'%(mat, flux))
-            #dataFile = os.path.abspath('fsri_materials//%s-%02d.csv'%(mat, flux))
             dataFiles = dataFiles + dataFile + '|'
         dataFiles = dataFiles[:-1]
         
