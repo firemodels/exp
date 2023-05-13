@@ -49,9 +49,9 @@ def extractConeAnalysisData(values, scaled_times, tigns, uniqueFluxes):
     return coneAnalysisData
 
 def air_density(temperature):
-	# returns density in kg/m3 given a temperature in C
-	rho = 1.2883 - 4.327e-3*temperature + 8.78e-6*temperature**2
-	return rho
+    # returns density in kg/m3 given a temperature in C
+    rho = 1.2883 - 4.327e-3*temperature + 8.78e-6*temperature**2
+    return rho
 
 def getConeData(material, directory, e=13100):
     p = os.path.abspath(directory+os.sep+'Cone')
@@ -335,7 +335,7 @@ def interpolateExperimentalData(times, HRRs, targetDt=False, filterWidth=False):
 if __name__ == "__main__":
     
     raw_data_dir = '../../fsri_materials_database/01_Data/'
-    out_dir = '../../fsri_materials_database/05_Computed/'
+    out_dir = '../../exp/FSRI_Materials/'
     
     #data_dir = "E:\\projects\\1JLH-NIST2022\\materials\\fsri_materials_database\\01_Data\\"
     #out_dir = "E:\\projects\\1JLH-NIST2022\\materials\\fsri_materials_database\\04_Computed\\"
@@ -420,7 +420,7 @@ if __name__ == "__main__":
             hrrpuas = material_database[material][flux]['hrrpua']
             
             d = pd.DataFrame(np.array([times, hrrpuas]).T, columns=['Time','HRRPUA'])
-            dataFile = os.path.abspath('E:\\projects\\1JLH-NIST2022\\exp\\FSRI_Materials\\%s-%02d.csv'%(mat, flux))
+            dataFile = os.path.abspath(os.path.join(out_dir,'%s-%02d.csv'%(mat, flux)))
             d.to_csv(dataFile, index=False)
             
     with open('fsri_spec_file.csv', 'w') as f:
