@@ -3,7 +3,7 @@ import glob
 import numpy as np
 import pandas as pd
 import shutil
-
+import matplotlib.pyplot as plt
 # This script will import data from the FSRI material database and evaluate
 # the scaling pyrolysis model on all materials.
 # To use this script, clone the FSRI database into the same root directory
@@ -63,6 +63,33 @@ def getConeData(material, directory, e=13100):
         density = tmp_prop['Density (kg/m3)'].values[0]
     except:
         density = False
+    
+    # Hard coded fixes for consistency, see notes for each
+    if material == "HDPE":
+        files = [x for x in files if (('_R4' not in x) and ('_R5' not in x) and ('_R6' not in x))]
+        # _R5 and _R6 used a 60 mm spacing which differed from _R1 through _R4
+        # _R4 warped and contacted spark ignitor leadi nto differenet burning behavior
+    if material == 'EPDM_Membrane':
+        files2 = []
+        for file in files:
+            if 'HF25' in file and (('_R3' in file) or ('_R4' in file) or ('_R5' in file)):
+                files2.append(file)
+            if (('HF50' in file) or ('HF75' in file)) and ('_R4' not in file):
+                files2.append(file)
+        files = files2
+    if material == 'Nylon':
+        files = [x for x in files if (('_R4' not in x) or ('HF25' not in x))]
+        # _R4 used retaining frame
+    if material == 'PET':
+        files = [x for x in files if (('_R4' not in x) or ('HF25' not in x))]
+        files = [x for x in files if (('_R5' not in x) or ('HF25' not in x))]
+        # _R4 and _R5 used 60 mm spacing
+    if material == 'Polyisocyanurate_Foam_Board':
+        files = [x for x in files if ('_R1' not in x)]
+        # _R1 left foil on the sample whereas R2-R4 removed
+    if material == 'Vinyl_Tile':
+        files = [x for x in files if ('_R4' not in x)]
+        # _R4 different test conditions than R1-R3
     coneData = dict()
     for j, file in enumerate(files):
         dc = pd.read_csv(file, skiprows= [1,2,3,4], index_col='Names', header=0)
@@ -133,12 +160,18 @@ def getConeData(material, directory, e=13100):
         coneData[j]['timeMax'] = np.nanmax(dc['Time'])
         coneData[j]['timeInt'] = float(ds.at['SCAN TIME'])
         coneData[j]['timeIgn'] = float(ds.at['TIME TO IGN']) # m2
+        try:
+            HF_float = float(HF)
+        except:
+            HF_float = float(HF.split('-')[0])
+        if HF_float != float(ds.at['HEAT FLUX']):
+            print(file, float(ds.at['HEAT FLUX']))
     
     coneData = pd.DataFrame(coneData).T
     
     return coneData
 
-def importFsriMaterial(p, material, outInt, filterWidth=41):
+def importFsriMaterial(p, material, outInt, filterWidth=101, dt=0.1):
     material_dict = dict()
     coneData = getConeData(material, p)
     ignitionFname = p+os.sep+'Cone' + os.sep + material+'_Ignition_Temp_Properties.csv'
@@ -160,10 +193,11 @@ def importFsriMaterial(p, material, outInt, filterWidth=41):
     
     
     thicknesses = []
-    fil = np.ones(filterWidth)/filterWidth
+    fil1 = np.ones(filterWidth)/filterWidth
+    
     for flux in np.unique(coneData['flux'].values):
         outInt2 = outInt
-        dt = np.min(coneData.loc[coneData['flux'] == flux, 'timeInt'].values)
+        #dt = np.min(coneData.loc[coneData['flux'] == flux, 'timeInt'].values)
         tMax = np.max(coneData.loc[coneData['flux'] == flux, 'timeMax'].values)
         
         thickness = np.median(coneData.loc[coneData['flux'] == flux, 'thickness'].values)
@@ -178,52 +212,156 @@ def importFsriMaterial(p, material, outInt, filterWidth=41):
         time = np.linspace(0, tMax, int(tMax/dt)+1)
         hrrpua = np.zeros_like(time)
         hrrpuas_interp = np.zeros((time.shape[0], len(times)))
+        hrrpuas_interp_filtered = hrrpuas_interp.copy()
         
         for j in range(0, len(times)):
-            hrrpuas_interp[:, j] = np.convolve(np.interp(time, times[j], hrrpuas[j]), fil, mode='same')
+            h = np.interp(time, times[j], hrrpuas[j], right=np.nan)
+            h[h < 0] = 0
+            hrrpuas_interp[:, j] = h 
+            hrrpuas_interp_filtered[:, j] = np.convolve(h, fil1, mode='same')
+            #hrrpuas_interp[:, j] = np.convolve(h, fil, mode='same')
         
         # Find time to ignitions
         tIgns = []
+        energyThreshold = 0.01
+        truncateTime = False
+        truncateBelow = False
+        truncateBelow = 10
+        # Hardcoded fixes for specific materials
+        if material == 'Luan_Panel':
+            energyThreshold = 0.005
+        if material == 'Overstuffed_Chair_Polyester_Batting':
+            if flux == 75:
+                energyThreshold = 0.02
+            elif flux == 50:
+                energyThreshold = 0.03
+            elif flux == 25:
+                energyThreshold = 0.03
+                truncateBelow = 50
+        if material == 'Lightweight_Gypsum_Wallboard':
+            if flux == 25:
+                energyThreshold = 0.05
+        if material == 'MDF':
+            if flux == 50:
+                truncateTime = 1000
+        if material == 'Nylon_Carpet_High_Pile':
+            if flux == 25:
+                energyThreshold = 0.08
+        if material == 'PETG':
+            if flux == 25:
+                energyThreshold = 0.02
+        if material == 'Pine_Siding':
+            if flux == 75:
+                truncateTime = 700
+        if material == 'PlasticB':
+            if flux == 25:
+                energyThreshold = 0.011
+            else:
+                energyThreshold = 0.001
+        if material == 'Plastic_Laminate_Countertop':
+            if flux == 25:
+                energyThreshold = 0.02
+        if material == 'Polyester_Bed_Skirt':
+            if flux == 25:
+                energyThreshold = 0.02
+                truncateBelow = 10
+        if material == 'Polyester_Microfiber_Sheet':
+            if flux == 25:
+                truncateBelow = 10
+        if material == 'PVC':
+            if flux == 25:
+                truncateBelow = 20
+        if material == 'Roof_Felt':
+            if flux == 25:
+                truncateBelow = 20
+        if material == 'Vinyl_Siding':
+            if flux == 25:
+                truncateBelow = 20
+        
+        if truncateTime is not False:
+            hrrpuas_interp[time > truncateTime, :] = 0
+            hrrpuas_interp_filtered[time > truncateTime, :] = 0
+        if truncateBelow is not False:
+            hrrpuas_interp[hrrpuas_interp_filtered < truncateBelow] = 0
+            hrrpuas_interp_filtered[hrrpuas_interp_filtered < truncateBelow] = 0
         for j in range(0, len(times)):
-            totalEnergy = np.trapz(hrrpuas_interp[:, j], time)
+            inds = np.where(~np.isnan(hrrpuas_interp_filtered[:, j]))
+            totalEnergy = np.trapz(hrrpuas_interp_filtered[inds, j], time[inds])
+            #totalEnergy = np.trapz(hrrpuas_interp[:, j], time)
             totalEnergy2 = 0
             ind2 = 1
-            while totalEnergy2 < 0.0001 * totalEnergy:
+            while totalEnergy2 < energyThreshold * totalEnergy:
                 ind2 = ind2 + 1
-                totalEnergy2 = np.trapz(hrrpuas_interp[:ind2, j], time[:ind2])
-            hrrpuas_interp[:, j] = np.interp(time, time, hrrpuas_interp[:, j])
+                totalEnergy2 = np.trapz(hrrpuas_interp_filtered[:ind2, j], time[:ind2])
+            #hrrpuas_interp[:, j] = np.interp(time-time[ind2-1], time, hrrpuas_interp[:, j])
+            if material == 'Gypsum_Wallboard':
+                pass
+                #print(totalEnergy2, energyThreshold, totalEnergy)
+                #print(hrrpuas_interp[:, j])
             tIgns.append(time[ind2-1])
         tign = np.median(tIgns)
         
         # Average neglecting time to ignition
         hrrpuas_interp_notign = np.zeros_like(hrrpuas_interp)
         for j in range(0, len(times)):
-            hrrpuas_interp_notign[:, j] = np.interp(time, time-tIgns[j], hrrpuas_interp[:, j])
+            hrrpuas_interp_notign[:, j] = np.interp(time, time-tIgns[j], hrrpuas_interp[:, j], right=np.nan)
+            if material == 'Vinyl_Tile' and flux == 25:
+                pass
+                plt.plot(time, hrrpuas_interp_notign[:, j])
+                #plt.xlim(0, 400)
         
-        hrrpua = np.mean(hrrpuas_interp_notign, axis=1)        
-        hrrpua_std = np.std(hrrpuas_interp_notign, axis=1)
+        #hrrpuas_interp_notign[np.isnan(hrrpuas_interp_notign)] = 0.0
+
+        hrrpua = np.nanmean(hrrpuas_interp_notign, axis=1)        
+        hrrpua_std = np.nanstd(hrrpuas_interp_notign, axis=1)
+        hrrpua_mn = np.nanmin(hrrpuas_interp_notign, axis=1)
+        hrrpua_mx = np.nanmax(hrrpuas_interp_notign, axis=1)
         
         tMax = time.max()
+        
+        filterWidth2 = int(min([max([filterWidth/600 * tMax, 31]), filterWidth]))
+        fil2 = np.ones(filterWidth2)/float(filterWidth2)
+        
+        hrrpua = np.convolve(hrrpua, fil2, mode='same')
+        
+        hrrpua_for_energy = hrrpua.copy()
+        hrrpua_for_energy[np.isnan(hrrpua_for_energy)] = 0
+        
+        
         tMax = np.ceil((tMax)/outInt2)*outInt2
         outTime = np.linspace(0, tMax, int(tMax/outInt2)+1)
-        outHrrpua = np.interp(outTime, time, hrrpua)
+        outHrrpua = np.interp(outTime, time, hrrpua_for_energy)
         
-        totalEnergy = np.trapz(hrrpua, time)
+        totalEnergy = np.trapz(hrrpua_for_energy, time)
         totalEnergy2 = np.trapz(outHrrpua, outTime)
         
-        while abs(totalEnergy2 - totalEnergy)/totalEnergy > 0.00001:
+        peakHrrpua2 = np.nanmax(outHrrpua)
+        peakHrrpua = np.nanmax(hrrpua)
+        
+        while abs(totalEnergy2 - totalEnergy)/totalEnergy > 0.001 or abs(peakHrrpua2 - peakHrrpua)/peakHrrpua > 0.01:
             outInt2 = outInt2*0.9
             outTime = np.linspace(0, tMax, int(tMax/outInt2)+1)
-            outHrrpua = np.interp(outTime, time, hrrpua)
+            outHrrpua = np.interp(outTime, time, hrrpua_for_energy)
             totalEnergy2 = np.trapz(outHrrpua, outTime)
-            if outInt2 <= 1:
+            peakHrrpua2 = np.nanmax(outHrrpua)
+            if outInt2 <= 0.1:
                 totalEnergy2 = totalEnergy
         
         if tign > 0:
-            outTime = np.append(np.array([0, tign*0.9]), outTime+tign)
+            outTime = np.append(np.array([0, tign*0.98]), outTime+tign)
             outHrrpua = np.append(np.array([0, 0]), outHrrpua)
         
         outHrrpua[outHrrpua < 0] = 0
+        
+        #if material == 'High_Temperature_SCBA_Facepiece':
+        if material == 'Vinyl_Tile':
+            print(flux, tign*0.98)
+            print(flux, tIgns)
+            print(flux, outInt2, totalEnergy, totalEnergy2, peakHrrpua, peakHrrpua2)
+            plt.plot(outTime, outHrrpua)
+            plt.xlim(0, 400)
+            #assert False, "Stopped"
+            pass
         
         material_dict[flux] = dict()
         material_dict[flux]['time'] = outTime
@@ -236,6 +374,8 @@ def importFsriMaterial(p, material, outInt, filterWidth=41):
         material_dict[flux]['hrrpuas_interp'] = hrrpuas_interp
         material_dict[flux]['hrrpuas_interp_notign'] = hrrpuas_interp_notign
         material_dict[flux]['time_interp'] = time
+        material_dict[flux]['hrrpua_full_min'] = hrrpua_mn
+        material_dict[flux]['hrrpua_full_max'] = hrrpua_mx
         thicknesses.append(thickness)
     material_dict['thickness'] = np.median(thicknesses)
     
@@ -271,8 +411,9 @@ def importFsriDatabase(data_dir, outInt, Tinfty=300,
     for i in range(0, len(materials)):
         material = materials[i]
         p = os.path.join(os.path.abspath(data_dir), material)
-        material_dict = importFsriMaterial(p, material, outInt)
-        complete_materials[material] = material_dict
+        if True: #material == 'Vinyl_Tile':
+            material_dict = importFsriMaterial(p, material, outInt)
+            complete_materials[material] = material_dict
         
     return complete_materials
 
