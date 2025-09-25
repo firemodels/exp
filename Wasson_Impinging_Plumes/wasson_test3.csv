@@ -1,5 +1,5 @@
 Time,qtot,qrr,qabs,qconv,qgauge,T_gas
-(sec),(kW/m²),(kW/m²),(kW/m²),(kW/m²),(kW/m²),(°C)
+(sec),(kW/m2),(kW/m2),(kW/m2),(kW/m2),(kW/m2),(C)
 0,0,0,0,0,0,23
 0,0.06,-0.04,0,0,0,23.13
 10,1.37,-0.53,0.97,0.03,0.87,30.36
